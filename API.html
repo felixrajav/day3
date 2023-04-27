@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guvi html</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <h2>welcom to html Js</h2>
+    <script>
+        console.log("welcome to html")
+        function handeldata(){
+            let data= JSON.parse(this.responseText)
+            // for(let i=0;i<data.length;i++)
+            // {
+            //     console.log(data[i].name.common)
+            // }
+            console.log(JSON.parse(this.responseText))
+            // for(i in data){
+            //     console.log(data[i].name.common,data[i].region,data[i].subregion,data[i].population)
+            // }
+
+            for(i of data){
+                console.log(i.name,i.region,i.subregion,i.population)
+            }
+        }
+        const req =new XMLHttpRequest()     
+        req.addEventListener('load',handeldata)
+        req.open("GET","https://restcountries.com/v3.1/all")
+        req.send()
+    </script>
+</body>
+</html>
